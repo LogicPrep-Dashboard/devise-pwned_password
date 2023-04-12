@@ -13,6 +13,9 @@ module Devise
   @@pwned_password_read_timeout = 5
 
   module PwnedPassword
+    def self.activerecord51?
+      defined?(ActiveRecord) && ActiveRecord.gem_version >= Gem::Version.new("5.1.x")
+    end
   end
 end
 
